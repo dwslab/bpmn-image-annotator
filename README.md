@@ -14,22 +14,20 @@ This way, the BPMN shapes and edges can be linked back to the position within th
 To allow the annotation of images that contain modeling errors, most of these rules have been disabled.
 More details can be found in later sections.
 
-Installation
-=====
+## Installation
+
 
 ```
 npm install
 npm run dev
 ```
 
-Modeling Changes
-======
+## Modeling Changes
 
 - allow resizing elements
 - allow elements outside of lane/pool (this can be achieved by shrinking lane after the element has been modeled)
 
-Rule Changes
-======
+## Rule Changes
 
 Sequence Flow:
 - (Message/Timer) End Event: allow outgoing sequence flow
@@ -44,8 +42,7 @@ Event-based Gateway:
 CallActivity:
 - allow incoming/outgoing message flow
 
-TODO
-======
+## TODO
 
 - allow multiple event-based gateway sources for intermediateMessageReceiveEvent
 - allow DataInputAssociation/DataOutputAssociation to catch/throwEvent
