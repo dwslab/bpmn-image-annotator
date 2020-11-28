@@ -1,6 +1,6 @@
-# BPMN Image Annotator - annotate hand-drawn BPMN images with their ground-truth BPMN models
+# BPMN Image Annotator
 
-Annotation tool based on [bpmn-js](https://github.com/bpmn-io/bpmn-js) to annotate hand-drawn BPMN images.
+Annotation tool based on [bpmn-js](https://github.com/bpmn-io/bpmn-js) to annotate hand-drawn BPMN images with their ground-truth BPMN models.
 
 Workflow:
 1. Upload image
