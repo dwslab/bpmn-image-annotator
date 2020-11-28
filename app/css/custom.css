@@ -1,0 +1,32 @@
+.djs-shape.new-parent .djs-visual > :nth-child(1) {
+  fill: none;
+}
+
+/* place palette at right side instead of left side */
+.djs-palette {
+    position: absolute;
+    left: auto;
+    right: 20px;
+    top: 100px;
+}
+
+.buttons > li > div {
+  background: #DDD;
+  border: solid 1px #666;
+  display: inline-block;
+  padding: 5px;
+}
+
+.buttons div {
+  opacity: 0.5;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

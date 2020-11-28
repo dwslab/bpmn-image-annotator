@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+  <process id="Process_1gpwvpe">
+    <startEvent id="Event_04ww2tn">
+      <outgoing>Flow_0piyxor</outgoing>
+    </startEvent>
+    <task id="Activity_1c8m98k">
+      <incoming>Flow_0piyxor</incoming>
+      <outgoing>Flow_1lc8yz2</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0piyxor" sourceRef="Event_04ww2tn" targetRef="Activity_1c8m98k" />
+    <endEvent id="Event_0700mqe">
+      <incoming>Flow_1lc8yz2</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1lc8yz2" sourceRef="Activity_1c8m98k" targetRef="Event_0700mqe" />
+  </process>
+  <bpmndi:BPMNDiagram id="sid-74620812-92c4-44e5-949c-aa47393d3830">
+    <bpmndi:BPMNPlane id="sid-cdcae759-2af7-4a6d-bd02-53f3352a731d" bpmnElement="Process_1gpwvpe">
+      <bpmndi:BPMNEdge id="Flow_0piyxor_di" bpmnElement="Flow_0piyxor">
+        <omgdi:waypoint x="278" y="80" />
+        <omgdi:waypoint x="330" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lc8yz2_di" bpmnElement="Flow_1lc8yz2">
+        <omgdi:waypoint x="430" y="80" />
+        <omgdi:waypoint x="482" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_04ww2tn_di" bpmnElement="Event_04ww2tn">
+        <omgdc:Bounds x="242" y="62" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1c8m98k_di" bpmnElement="Activity_1c8m98k">
+        <omgdc:Bounds x="330" y="40" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0700mqe_di" bpmnElement="Event_0700mqe">
+        <omgdc:Bounds x="482" y="62" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="sid-e0502d32-f8d1-41cf-9c4a-cbb49fecf581">
+      <omgdc:Font name="Arial" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="sid-84cb49fd-2f7c-44fb-8950-83c3fa153d3b">
+      <omgdc:Font name="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>
