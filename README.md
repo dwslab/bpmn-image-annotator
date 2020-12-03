@@ -1,6 +1,6 @@
 # BPMN Image Annotator
 
-![BPMN Image Annotator Pizza Example](resources/bpmn-image-annotator.png)
+![BPMN Image Annotator Pizza Example](resources/bpmn-image-annotator-pizza.png)
 
 
 Annotation tool based on [bpmn-js](https://github.com/bpmn-io/bpmn-js) to annotate hand-drawn BPMN images with their ground-truth BPMN models.
@@ -68,3 +68,9 @@ CallActivity:
       - I would have to change BPMN Moddle for that? https://github.com/bpmn-io/bpmn-moddle/blob/master/resources/bpmn/json/bpmn.json
 - less hacky miminum lane dimension configuration: https://forum.bpmn.io/t/change-minimum-lane-dimensions/5318/2
 - allow message flow outgoing of gateway
+
+## License
+
+Apache 2.0
+
+Also see the [bpmn-js](https://github.com/bpmn-io/bpmn-js) license.
