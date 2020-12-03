@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- {"backgroundSize":1300} -->
+<semantic:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:semantic="http://www.omg.org/spec/BPMN/20100524/MODEL" id="_1275940932088" targetNamespace="http://www.trisotech.com/definitions/_1275940932088">
+  <semantic:message id="_1275940932310" />
+  <semantic:message id="_1275940932433" />
+  <semantic:process id="_6-1" isExecutable="false">
+    <semantic:laneSet id="ls_6-438">
+      <semantic:lane id="_6-448" name="delivery boy">
+        <semantic:flowNodeRef>_6-616</semantic:flowNodeRef>
+        <semantic:flowNodeRef>_6-514</semantic:flowNodeRef>
+        <semantic:flowNodeRef>_6-565</semantic:flowNodeRef>
+      </semantic:lane>
+      <semantic:lane id="_6-446" name="pizza chef">
+        <semantic:flowNodeRef>_6-463</semantic:flowNodeRef>
+      </semantic:lane>
+      <semantic:lane id="_6-650" name="clerk">
+        <semantic:flowNodeRef>_6-695</semantic:flowNodeRef>
+        <semantic:flowNodeRef>_6-674</semantic:flowNodeRef>
+        <semantic:flowNodeRef>_6-652</semantic:flowNodeRef>
+        <semantic:flowNodeRef>_6-450</semantic:flowNodeRef>
+      </semantic:lane>
+    </semantic:laneSet>
+    <semantic:task id="_6-463" name="Bake the pizza">
+      <semantic:incoming>_6-693</semantic:incoming>
+      <semantic:outgoing>Flow_0s9q69y</semantic:outgoing>
+    </semantic:task>
+    <semantic:sequenceFlow id="_6-693" name="" sourceRef="_6-652" targetRef="_6-463" />
+    <semantic:task id="_6-695" name="Calm customer">
+      <semantic:incoming>Flow_0xlvrom</semantic:incoming>
+      <semantic:outgoing>Flow_1qb40z9</semantic:outgoing>
+    </semantic:task>
+    <semantic:intermediateCatchEvent id="_6-674" name="„where is my pizza?“">
+      <semantic:incoming>Flow_141yg8g</semantic:incoming>
+      <semantic:incoming>Flow_1qb40z9</semantic:incoming>
+      <semantic:outgoing>Flow_0xlvrom</semantic:outgoing>
+      <semantic:messageEventDefinition messageRef="_1275940932433" />
+    </semantic:intermediateCatchEvent>
+    <semantic:endEvent id="_6-616" name="">
+      <semantic:incoming>Flow_1970t8v</semantic:incoming>
+    </semantic:endEvent>
+    <semantic:task id="_6-514" name="Deliver the pizza">
+      <semantic:incoming>Flow_0s9q69y</semantic:incoming>
+      <semantic:outgoing>Flow_00ci2u8</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="_6-565" name="Receive payment">
+      <semantic:incoming>Flow_00ci2u8</semantic:incoming>
+      <semantic:outgoing>Flow_1970t8v</semantic:outgoing>
+    </semantic:task>
+    <semantic:parallelGateway id="_6-652" name="">
+      <semantic:incoming>Flow_0y7h6gj</semantic:incoming>
+      <semantic:outgoing>_6-693</semantic:outgoing>
+      <semantic:outgoing>Flow_141yg8g</semantic:outgoing>
+    </semantic:parallelGateway>
+    <semantic:startEvent id="_6-450" name="Order received">
+      <semantic:outgoing>Flow_0y7h6gj</semantic:outgoing>
+      <semantic:messageEventDefinition messageRef="_1275940932310" />
+    </semantic:startEvent>
+    <semantic:sequenceFlow id="Flow_0y7h6gj" sourceRef="_6-450" targetRef="_6-652" />
+    <semantic:sequenceFlow id="Flow_141yg8g" sourceRef="_6-652" targetRef="_6-674" />
+    <semantic:sequenceFlow id="Flow_0s9q69y" sourceRef="_6-463" targetRef="_6-514" />
+    <semantic:sequenceFlow id="Flow_00ci2u8" sourceRef="_6-514" targetRef="_6-565" />
+    <semantic:sequenceFlow id="Flow_1970t8v" sourceRef="_6-565" targetRef="_6-616" />
+    <semantic:sequenceFlow id="Flow_0xlvrom" sourceRef="_6-674" targetRef="_6-695" />
+    <semantic:sequenceFlow id="Flow_1qb40z9" sourceRef="_6-695" targetRef="_6-674" />
+  </semantic:process>
+  <semantic:message id="_1275940932198" />
+  <semantic:process id="_6-2" isExecutable="false">
+    <semantic:sequenceFlow id="_6-125" name="" sourceRef="_6-61" targetRef="_6-74" />
+    <semantic:startEvent id="_6-61" name="Hungry for pizza">
+      <semantic:outgoing>_6-125</semantic:outgoing>
+    </semantic:startEvent>
+    <semantic:task id="_6-74" name="Select a pizza">
+      <semantic:incoming>_6-125</semantic:incoming>
+      <semantic:outgoing>Flow_1nduh39</semantic:outgoing>
+    </semantic:task>
+    <semantic:endEvent id="_6-406" name="Hunger satisfied">
+      <semantic:incoming>Flow_0o2t3t2</semantic:incoming>
+    </semantic:endEvent>
+    <semantic:task id="_6-355" name="Eat the pizza">
+      <semantic:incoming>Flow_0j7h7ul</semantic:incoming>
+      <semantic:outgoing>Flow_0o2t3t2</semantic:outgoing>
+    </semantic:task>
+    <semantic:task id="_6-304" name="Pay the pizza">
+      <semantic:incoming>Flow_0s34wee</semantic:incoming>
+      <semantic:outgoing>Flow_0j7h7ul</semantic:outgoing>
+    </semantic:task>
+    <semantic:intermediateCatchEvent id="_6-202" name="pizza received">
+      <semantic:incoming>Flow_0v4zn0s</semantic:incoming>
+      <semantic:outgoing>Flow_0s34wee</semantic:outgoing>
+      <semantic:messageEventDefinition messageRef="_1275940932198" />
+    </semantic:intermediateCatchEvent>
+    <semantic:task id="_6-236" name="Ask for the pizza">
+      <semantic:incoming>Flow_0b33vda</semantic:incoming>
+      <semantic:outgoing>Flow_0554ux4</semantic:outgoing>
+    </semantic:task>
+    <semantic:intermediateCatchEvent id="_6-219" name="60 minutes">
+      <semantic:incoming>Flow_0jv8eqp</semantic:incoming>
+      <semantic:outgoing>Flow_0b33vda</semantic:outgoing>
+      <semantic:timerEventDefinition>
+        <semantic:timeDate />
+      </semantic:timerEventDefinition>
+    </semantic:intermediateCatchEvent>
+    <semantic:eventBasedGateway id="_6-180" name="">
+      <semantic:incoming>Flow_0cirr4v</semantic:incoming>
+      <semantic:incoming>Flow_0554ux4</semantic:incoming>
+      <semantic:outgoing>Flow_0v4zn0s</semantic:outgoing>
+      <semantic:outgoing>Flow_0jv8eqp</semantic:outgoing>
+    </semantic:eventBasedGateway>
+    <semantic:task id="_6-127" name="Order a pizza">
+      <semantic:incoming>Flow_1nduh39</semantic:incoming>
+      <semantic:outgoing>Flow_0cirr4v</semantic:outgoing>
+    </semantic:task>
+    <semantic:sequenceFlow id="Flow_1nduh39" sourceRef="_6-74" targetRef="_6-127" />
+    <semantic:sequenceFlow id="Flow_0cirr4v" sourceRef="_6-127" targetRef="_6-180" />
+    <semantic:sequenceFlow id="Flow_0v4zn0s" sourceRef="_6-180" targetRef="_6-202" />
+    <semantic:sequenceFlow id="Flow_0s34wee" sourceRef="_6-202" targetRef="_6-304" />
+    <semantic:sequenceFlow id="Flow_0j7h7ul" sourceRef="_6-304" targetRef="_6-355" />
+    <semantic:sequenceFlow id="Flow_0o2t3t2" sourceRef="_6-355" targetRef="_6-406" />
+    <semantic:sequenceFlow id="Flow_0554ux4" sourceRef="_6-236" targetRef="_6-180" />
+    <semantic:sequenceFlow id="Flow_0jv8eqp" sourceRef="_6-180" targetRef="_6-219" />
+    <semantic:sequenceFlow id="Flow_0b33vda" sourceRef="_6-219" targetRef="_6-236" />
+  </semantic:process>
+  <semantic:collaboration id="C1275940932557">
+    <semantic:participant id="_6-53" name="Pizza Customer" processRef="_6-2" />
+    <semantic:participant id="_6-438" name="Pizza vendor" processRef="_6-1" />
+    <semantic:messageFlow id="_6-638" name="pizza order" sourceRef="_6-127" targetRef="_6-450" />
+    <semantic:messageFlow id="_6-642" name="" sourceRef="_6-236" targetRef="_6-674" />
+    <semantic:messageFlow id="_6-646" name="receipt" sourceRef="_6-565" targetRef="_6-304" />
+    <semantic:messageFlow id="_6-648" name="money" sourceRef="_6-304" targetRef="_6-565" />
+    <semantic:messageFlow id="_6-640" name="pizza" sourceRef="_6-514" targetRef="_6-202" />
+    <semantic:messageFlow id="_6-750" name="" sourceRef="_6-695" targetRef="_6-236" />
+  </semantic:collaboration>
+  <bpmndi:BPMNDiagram id="Trisotech.Visio-_6" name="Untitled Diagram" documentation="" resolution="96.00000267028808">
+    <bpmndi:BPMNPlane bpmnElement="C1275940932557">
+      <bpmndi:BPMNShape id="Trisotech.Visio__6-438" bpmnElement="_6-438" isHorizontal="true">
+        <dc:Bounds x="95" y="488" width="1115" height="304" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-448" bpmnElement="_6-448" isHorizontal="true">
+        <dc:Bounds x="125" y="693" width="1084" height="99" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-446" bpmnElement="_6-446" isHorizontal="true">
+        <dc:Bounds x="125" y="621" width="1084" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-650" bpmnElement="_6-650" isHorizontal="true">
+        <dc:Bounds x="125" y="488" width="1084" height="133" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-693" bpmnElement="_6-693">
+        <di:waypoint x="238" y="553" />
+        <di:waypoint x="238" y="653" />
+        <di:waypoint x="321" y="653" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y7h6gj_di" bpmnElement="Flow_0y7h6gj">
+        <di:waypoint x="182" y="532" />
+        <di:waypoint x="201" y="532" />
+        <di:waypoint x="201" y="535" />
+        <di:waypoint x="220" y="535" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_141yg8g_di" bpmnElement="Flow_141yg8g">
+        <di:waypoint x="257" y="536" />
+        <di:waypoint x="435" y="536" />
+        <di:waypoint x="435" y="531" />
+        <di:waypoint x="612" y="531" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0s9q69y_di" bpmnElement="Flow_0s9q69y">
+        <di:waypoint x="499" y="664" />
+        <di:waypoint x="799" y="731" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00ci2u8_di" bpmnElement="Flow_00ci2u8">
+        <di:waypoint x="906" y="735" />
+        <di:waypoint x="980" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1970t8v_di" bpmnElement="Flow_1970t8v">
+        <di:waypoint x="1081" y="735" />
+        <di:waypoint x="1155" y="735" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xlvrom_di" bpmnElement="Flow_0xlvrom">
+        <di:waypoint x="680" y="534" />
+        <di:waypoint x="709" y="534" />
+        <di:waypoint x="709" y="536" />
+        <di:waypoint x="738" y="536" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qb40z9_di" bpmnElement="Flow_1qb40z9">
+        <di:waypoint x="776" y="570" />
+        <di:waypoint x="783" y="610" />
+        <di:waypoint x="653" y="629" />
+        <di:waypoint x="563" y="614" />
+        <di:waypoint x="563" y="566" />
+        <di:waypoint x="598" y="539" />
+        <di:waypoint x="613" y="542" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-463" bpmnElement="_6-463">
+        <dc:Bounds x="321" y="630" width="178" height="45" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-695" bpmnElement="_6-695">
+        <dc:Bounds x="738" y="513" width="88" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-674" bpmnElement="_6-674">
+        <dc:Bounds x="612" y="510" width="68" height="47" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="610" y="571" width="63" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1wlyf9z_di" bpmnElement="_6-616">
+        <dc:Bounds x="1155" y="726" width="24" height="23" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-514" bpmnElement="_6-514">
+        <dc:Bounds x="799" y="701" width="107" height="61" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-565" bpmnElement="_6-565">
+        <dc:Bounds x="980" y="701" width="101" height="73" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-652" bpmnElement="_6-652">
+        <dc:Bounds x="219" y="519" width="38" height="34" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-450" bpmnElement="_6-450">
+        <dc:Bounds x="150" y="515" width="32" height="34" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="166" y="552" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6-53" bpmnElement="_6-53" isHorizontal="true">
+        <dc:Bounds x="88" y="231" width="1199" height="213" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-125" bpmnElement="_6-125">
+        <di:waypoint x="188" y="322" />
+        <di:waypoint x="217" y="322" />
+        <di:waypoint x="217" y="314" />
+        <di:waypoint x="246" y="314" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nduh39_di" bpmnElement="Flow_1nduh39">
+        <di:waypoint x="366" y="319" />
+        <di:waypoint x="386" y="319" />
+        <di:waypoint x="386" y="314" />
+        <di:waypoint x="406" y="314" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cirr4v_di" bpmnElement="Flow_0cirr4v">
+        <di:waypoint x="523" y="330" />
+        <di:waypoint x="573" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0v4zn0s_di" bpmnElement="Flow_0v4zn0s">
+        <di:waypoint x="604" y="295" />
+        <di:waypoint x="604" y="279" />
+        <di:waypoint x="703" y="279" />
+        <di:waypoint x="703" y="296" />
+        <di:waypoint x="765" y="296" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0s34wee_di" bpmnElement="Flow_0s34wee">
+        <di:waypoint x="821" y="296" />
+        <di:waypoint x="871" y="296" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0j7h7ul_di" bpmnElement="Flow_0j7h7ul">
+        <di:waypoint x="954" y="295" />
+        <di:waypoint x="984" y="295" />
+        <di:waypoint x="984" y="300" />
+        <di:waypoint x="1014" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0o2t3t2_di" bpmnElement="Flow_0o2t3t2">
+        <di:waypoint x="1090" y="299" />
+        <di:waypoint x="1129" y="299" />
+        <di:waypoint x="1129" y="311" />
+        <di:waypoint x="1168" y="311" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0554ux4_di" bpmnElement="Flow_0554ux4">
+        <di:waypoint x="818" y="393" />
+        <di:waypoint x="818" y="434" />
+        <di:waypoint x="571" y="434" />
+        <di:waypoint x="571" y="336" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jv8eqp_di" bpmnElement="Flow_0jv8eqp">
+        <di:waypoint x="604" y="355" />
+        <di:waypoint x="604" y="371" />
+        <di:waypoint x="692" y="371" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0b33vda_di" bpmnElement="Flow_0b33vda">
+        <di:waypoint x="743" y="362" />
+        <di:waypoint x="762" y="362" />
+        <di:waypoint x="762" y="368" />
+        <di:waypoint x="781" y="368" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-61" bpmnElement="_6-61">
+        <dc:Bounds x="167" y="310" width="21" height="21" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="137" y="331" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-74" bpmnElement="_6-74">
+        <dc:Bounds x="246" y="280" width="120" height="77" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-406" bpmnElement="_6-406">
+        <dc:Bounds x="1168" y="298" width="32" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1153" y="338" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-355" bpmnElement="_6-355">
+        <dc:Bounds x="1014" y="269" width="76" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-304" bpmnElement="_6-304">
+        <dc:Bounds x="871" y="266" width="83" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-202" bpmnElement="_6-202">
+        <dc:Bounds x="764" y="279" width="58" height="47" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="764" y="261" width="71" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-236" bpmnElement="_6-236">
+        <dc:Bounds x="781" y="339" width="74" height="54" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-219" bpmnElement="_6-219">
+        <dc:Bounds x="692" y="338" width="51" height="48" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="700" y="306" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-180" bpmnElement="_6-180">
+        <dc:Bounds x="567" y="295" width="74" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Trisotech.Visio__6__6-127" bpmnElement="_6-127">
+        <dc:Bounds x="406" y="277" width="117" height="78" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-638" bpmnElement="_6-638">
+        <di:waypoint x="440" y="355" />
+        <di:waypoint x="421" y="452" />
+        <di:waypoint x="288" y="464" />
+        <di:waypoint x="202" y="487" />
+        <di:waypoint x="175" y="519" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="263" y="447" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-642" bpmnElement="_6-642">
+        <di:waypoint x="796" y="393" />
+        <di:waypoint x="670" y="509" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-646" bpmnElement="_6-646" messageVisibleKind="non_initiating">
+        <di:waypoint x="1071" y="701" />
+        <di:waypoint x="1060" y="512" />
+        <di:waypoint x="1016" y="369" />
+        <di:waypoint x="954" y="307" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1073" y="490" width="34" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-648" bpmnElement="_6-648">
+        <di:waypoint x="936" y="323" />
+        <di:waypoint x="994" y="508" />
+        <di:waypoint x="994" y="701" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="949" y="479" width="33" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-640" bpmnElement="_6-640">
+        <di:waypoint x="890" y="701" />
+        <di:waypoint x="910" y="547" />
+        <di:waypoint x="897" y="358" />
+        <di:waypoint x="845" y="319" />
+        <di:waypoint x="820" y="313" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="875" y="484" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Trisotech.Visio__6__6-750" bpmnElement="_6-750">
+        <di:waypoint x="814" y="513" />
+        <di:waypoint x="842" y="480" />
+        <di:waypoint x="842" y="393" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</semantic:definitions>
