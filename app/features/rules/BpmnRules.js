@@ -271,7 +271,7 @@ function isMessageFlowSource(element) {
     is(element, 'bpmn:CallActivity') || (
       is(element, 'bpmn:InteractionNode') &&
       !is(element, 'bpmn:BoundaryEvent')
-    )
+    ) || is(element, 'bpmn:Gateway') // CUSTOM: add gateway
   );
 }
 
@@ -279,10 +279,10 @@ function isMessageFlowTarget(element) {
   return (
     is(element, 'bpmn:CallActivity') || (
       is(element, 'bpmn:InteractionNode') && !isForCompensation(element)
-    )
+    ) || is(element, 'bpmn:Gateway') // CUSTOM: add gateway
      && !(
-      is(element, 'bpmn:BoundaryEvent') &&
-      !hasEventDefinition(element, 'bpmn:MessageEventDefinition')
+      is(element, 'bpmn:BoundaryEvent') // &&
+      // !hasEventDefinition(element, 'bpmn:MessageEventDefinition')
     )
   );
 }

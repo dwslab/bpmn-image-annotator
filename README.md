@@ -38,6 +38,7 @@ Sequence Flow:
 
 Message Flow:
 - Event (all types): allow incoming+outgoing message flow
+- Gateway (all types): allow incoming+outgoing message flow
 
 Event-based Gateway:
 - allow sequence flow to task
@@ -67,7 +68,6 @@ CallActivity:
     3.  dataInputAssociations/dataOutputAssocation is not allowed for CatchEvent/ThrowEvent in BPMN XML schema
       - I would have to change BPMN Moddle for that? https://github.com/bpmn-io/bpmn-moddle/blob/master/resources/bpmn/json/bpmn.json
 - less hacky miminum lane dimension configuration: https://forum.bpmn.io/t/change-minimum-lane-dimensions/5318/2
-- allow message flow outgoing of gateway
 
 ## License
 
