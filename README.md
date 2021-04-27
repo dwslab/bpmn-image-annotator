@@ -40,6 +40,9 @@ Message Flow:
 - Event (all types): allow incoming+outgoing message flow
 - Gateway (all types): allow incoming+outgoing message flow
 
+DataInputAssociation/DataOutputAssociation
+- allow DataInputAssociation/DataOutputAssociation to catch/throwEvent
+
 Event-based Gateway:
 - allow sequence flow to task
 
@@ -48,25 +51,8 @@ CallActivity:
 
 ## TODO
 
+- DataInputAssociation/DataOutputAssociation for catch/throwEvent are serialized but not parsed
 - allow multiple event-based gateway sources for intermediateMessageReceiveEvent
-- allow DataInputAssociation/DataOutputAssociation to catch/throwEvent
-  - Status:
-    1. updated canConnectDataAssociation(), but now I get exception `children is undefined` in `updateSemanticParent BpmnUpdater.js:594`
-    2. updated BpmnUpdater, but it's not properly serialized:
-    ```
-      <intermediateThrowEvent id="Event_0l8nw9x" name="confirm order" dataOutputAssociations="[object Object]">
-        <incoming>Flow_0liyhaz</incoming>
-        <outgoing>Flow_00p472o</outgoing>
-        <property id="Property_05xakg7" name="__targetRef_placeholder" />
-        <dataInputAssociation id="DataInputAssociation_0fpc47y">
-          <sourceRef>DataStoreReference_12vp77u</sourceRef>
-          <targetRef>Property_05xakg7</targetRef>
-        </dataInputAssociation>
-        <messageEventDefinition id="MessageEventDefinition_1kd5ekt" />
-      </intermediateThrowEvent>
-    ```
-    3.  dataInputAssociations/dataOutputAssocation is not allowed for CatchEvent/ThrowEvent in BPMN XML schema
-      - I would have to change BPMN Moddle for that? https://github.com/bpmn-io/bpmn-moddle/blob/master/resources/bpmn/json/bpmn.json
 - less hacky miminum lane dimension configuration: https://forum.bpmn.io/t/change-minimum-lane-dimensions/5318/2
 
 ## License

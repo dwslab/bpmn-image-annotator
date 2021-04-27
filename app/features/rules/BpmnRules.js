@@ -822,14 +822,14 @@ function canConnectSequenceFlow(source, target) {
 
 
 function canConnectDataAssociation(source, target) {
-  // TODO figure out how to add Catch/Throw Event 
+  // CUSTOM: add catchEvent for dataInputAssociation and throwEvent for dataOutputAssociation
   if (isAny(source, [ 'bpmn:DataObjectReference', 'bpmn:DataStoreReference' ]) &&
-      isAny(target, [ 'bpmn:Activity', 'bpmn:ThrowEvent' ])) {
+      isAny(target, [ 'bpmn:Activity', 'bpmn:CatchEvent', 'bpmn:ThrowEvent' ])) {
     return { type: 'bpmn:DataInputAssociation' };
   }
 
   if (isAny(target, [ 'bpmn:DataObjectReference', 'bpmn:DataStoreReference' ]) &&
-      isAny(source, [ 'bpmn:Activity', 'bpmn:CatchEvent' ])) {
+      isAny(source, [ 'bpmn:Activity', 'bpmn:ThrowEvent', 'bpmn:CatchEvent' ])) {
     return { type: 'bpmn:DataOutputAssociation' };
   }
 

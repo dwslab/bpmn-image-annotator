@@ -1,0 +1,52 @@
+{
+    "name": "BPMN20Ext",
+    "uri": "http://some-company/schema/bpmnext",
+    "prefix": "bpmnext",
+    "associations": [],
+    "types": [
+        {
+            "name": "CustomCatchEvent",
+            "extends": [
+                "bpmn:CatchEvent"
+            ],
+            "properties": [
+                {
+                    "name": "dataInputs",
+                    "type": "DataInput",
+                    "isMany": true
+                },
+                {
+                    "name": "dataInputAssociations",
+                    "type": "DataInputAssociation",
+                    "isMany": true
+                },
+                {
+                    "name": "inputSet",
+                    "type": "InputSet"
+                }
+            ]
+        },
+        {
+            "name": "CustomThrowEvent",
+            "extends": [
+                "bpmn:ThrowEvent"
+            ],
+            "properties": [
+                {
+                    "name": "dataOutputs",
+                    "type": "DataOutput",
+                    "isMany": true
+                },
+                {
+                    "name": "dataOutputAssociations",
+                    "type": "DataOutputAssociation",
+                    "isMany": true
+                },
+                {
+                    "name": "outputSet",
+                    "type": "OutputSet"
+                }
+            ]
+        }
+    ]
+}

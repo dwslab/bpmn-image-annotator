@@ -6,9 +6,15 @@ import diagramXML from '../resources/default.bpmn';
 import resizeAllModule from './resize-all-rules';
 import OriginModule from 'diagram-js-origin';
 
+import bpmnExtension from '../resources/model-extension.json';
+
 var modeler = new BpmnModeler({
   container: '#canvas',
   keyboard: {bindTo: document},
+
+  moddleExtensions: {
+    bpmnext: bpmnExtension
+  },
 
   // customize default colors
   bpmnRenderer: {
@@ -16,6 +22,18 @@ var modeler = new BpmnModeler({
     defaultStrokeColor: 'rgb(255 100 0)' // orange 
     // defaultStrokeColor: 'rgb(255 255 0)' // yellow
   },
+ 
+  // customize text
+  // textRenderer: {
+  //   defaultStyle: {
+  //     fontSize: '14px',
+  //     fontWeight: 'bold',
+  //   },
+  //   externalStyle: {
+  //     fontSize: '14px',
+  //     fontWeight: 'bold',
+  //   }
+  // },
 
   additionalModules: [
     OriginModule,
