@@ -35,23 +35,20 @@ npm run dev
 Sequence Flow:
 - (Message/Timer) End Event: allow outgoing sequence flow
 - (Message/Timer) Start Event: allow incoming sequence flow
+- Event-based Gateway: allow outgoing sequence flow to task
 
 Message Flow:
 - Event (all types): allow incoming+outgoing message flow
 - Gateway (all types): allow incoming+outgoing message flow
+- CallActivity: allow incoming/outgoing message flow
 
 DataInputAssociation/DataOutputAssociation
 - allow DataInputAssociation/DataOutputAssociation to catch/throwEvent
-
-Event-based Gateway:
-- allow sequence flow to task
-
-CallActivity:
-- allow incoming/outgoing message flow
+- allow DataInputAssociation/DataOutputAssociation to Gateway
 
 ## TODO
 
-- DataInputAssociation/DataOutputAssociation for catch/throwEvent are serialized but not parsed
+- new DataInputAssociation/DataOutputAssociation are serialized but not parsed
 - allow multiple event-based gateway sources for intermediateMessageReceiveEvent
 - less hacky miminum lane dimension configuration: https://forum.bpmn.io/t/change-minimum-lane-dimensions/5318/2
 

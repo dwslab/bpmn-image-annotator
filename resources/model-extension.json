@@ -47,6 +47,42 @@
                     "type": "OutputSet"
                 }
             ]
+        },
+        {
+            "name": "CustomGateway",
+            "extends": [
+                "bpmn:Gateway"
+            ],
+            "properties": [
+                {
+                    "name": "dataInputs",
+                    "type": "DataInput",
+                    "isMany": true
+                },
+                {
+                    "name": "dataInputAssociations",
+                    "type": "DataInputAssociation",
+                    "isMany": true
+                },
+                {
+                    "name": "inputSet",
+                    "type": "InputSet"
+                },
+                {
+                    "name": "dataOutputs",
+                    "type": "DataOutput",
+                    "isMany": true
+                },
+                {
+                    "name": "dataOutputAssociations",
+                    "type": "DataOutputAssociation",
+                    "isMany": true
+                },
+                {
+                    "name": "outputSet",
+                    "type": "OutputSet"
+                }
+            ]
         }
     ]
 }
