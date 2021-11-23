@@ -2,8 +2,7 @@
 
 ![BPMN Image Annotator Pizza Example](resources/bpmn-image-annotator-pizza.png)
 
-
-Annotation tool based on [bpmn-js](https://github.com/bpmn-io/bpmn-js) to annotate hand-drawn BPMN images with their ground-truth BPMN models.
+Annotation tool based on [bpmn-js](https://github.com/bpmn-io/bpmn-js) to annotate hand-drawn BPMN images with their ground-truth BPMN models. This tool was used to annotate the [hdBPMN](https://github.com/dwslab/hdBPMN) dataset.
 
 Workflow:
 1. Upload image
@@ -13,24 +12,23 @@ Workflow:
 The XML will have an additional `backgroundSize` to track the width the image was rescaled to during modeling.
 This way, the BPMN shapes and edges can be linked back to the position within the image.
 
-`bpmn-js` enforces several correctness rules.
-To allow the annotation of images that contain modeling errors, most of these rules have been disabled.
-More details can be found in later sections.
+You can also use the hosted [bpmn-image-annotator](https://bpmn-image-annotator.informatik.uni-mannheim.de/) instead of running the tool yourself.
 
 ## Installation
-
 
 ```
 npm install
 npm run dev
 ```
 
-## Modeling Changes
+## bpmn-js Changes
 
+`bpmn-js` enforces several correctness rules.
+To allow the annotation of images that contain modeling errors, most of these rules have been disabled.
+
+Modeling:
 - allow resizing elements
 - allow elements outside of lane/pool (this can be achieved by shrinking lane after the element has been modeled)
-
-## Rule Changes
 
 Sequence Flow:
 - (Message/Timer) End Event: allow outgoing sequence flow
